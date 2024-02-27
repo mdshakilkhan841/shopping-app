@@ -1,5 +1,6 @@
 import { MdSearch } from "react-icons/md";
 import ProductCard from "../../components/product/ProductCard";
+import Categories from "../../components/product/Categories";
 
 export default function Home() {
   return (
@@ -14,7 +15,8 @@ export default function Home() {
             placeholder="Search Product"
           />
         </div>
-        <div className="border rounded p-3 h-[calc(100vh-215px)] sm:h-[calc(100vh-156px)] overflow-auto">
+        <Categories />
+        <div className="border rounded p-3 h-[calc(100vh-215px)] sm:h-[calc(100vh-210px)] overflow-auto">
           <ProductCard />
         </div>
       </div>

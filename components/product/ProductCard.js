@@ -79,7 +79,7 @@ export default function ProductCard() {
                   {item.price}
                 </p>
                 <button
-                  className="bg-pink-500 text-white active:bg-pink-600 font-bold text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  className="bg-blue-500 text-white active:bg-blue-600 font-bold text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                   type="button"
                   onClick={() => handleAddCart(item)}
                 >
