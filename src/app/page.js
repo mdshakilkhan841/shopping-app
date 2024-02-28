@@ -1,8 +1,8 @@
 import { MdSearch } from "react-icons/md";
 import ProductCard from "../../components/product/ProductCard";
 import Categories from "../../components/product/Categories";
-import Modal from "../../components/Modal";
 import { IoCloseSharp } from "react-icons/io5";
+import SidebarModal from "../../components/SidebarModal";
 
 export default function Home() {
   return (
@@ -29,7 +29,7 @@ export default function Home() {
           <button className="w-1/2 bg-blue-100 border-gray-400 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border rounded shadow">
             Customer
           </button>
-          <Modal
+          <SidebarModal
             buttonText={"+ New Customer"}
             modalTitle={"Add New Customer"}
           />

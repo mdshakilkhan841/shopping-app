@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 
-export default function Modal({ buttonText, modalTitle }) {
+export default function SidebarModal({ buttonText, modalTitle }) {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
@@ -34,19 +34,19 @@ export default function Modal({ buttonText, modalTitle }) {
                     thing people are controlled by! Thoughts- their perception
                     of themselves! They're slowed down by their perception of
                     themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves.
+                    won’t do anything. I was taught I could do everything. I
+                    always felt like I could do anything. That’s the main thing
+                    people are controlled by! Thoughts- their perception of
+                    themselves! They're slowed down by their perception of
+                    themselves. I always felt like I could do anything. That’s
+                    the main thing people are controlled by! Thoughts- their
+                    perception of themselves! They're slowed down by their
+                    perception of themselves. If you're taught you can’t do
+                    anything, you won’t do anything. I was taught I could do
+                    everything. I always felt like I could do anything. That’s
+                    the main thing people are controlled by! Thoughts- their
+                    perception of themselves! They're slowed down by their
+                    perception of themselves.
                   </p>
                 </div>
                 {/*footer*/}
