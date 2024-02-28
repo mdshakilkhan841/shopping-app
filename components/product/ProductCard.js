@@ -30,7 +30,7 @@ export default function ProductCard() {
   return loading ? (
     <ProductCardSkeleton />
   ) : (
-    <div className="grid grid-cols-4 gap-3">
+    <div className="grid 2xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
       {products.map((item) => (
         <div key={item.id}>
           <div className="shadow-lg">

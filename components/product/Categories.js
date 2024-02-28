@@ -23,7 +23,7 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="flex justify-between">
+    <div className="flex flex-wrap gap-3 justify-between">
       <button
         className={`${
           currentCategory === "all-categories"
