@@ -1,10 +1,19 @@
+"use client";
 import { MdSearch } from "react-icons/md";
 import ProductCard from "../../components/product/ProductCard";
 import Categories from "../../components/product/Categories";
 import { IoCloseSharp } from "react-icons/io5";
 import SidebarModal from "../../components/SidebarModal";
+import Cart from "../../components/product/Cart";
+import useCartStore from "@/store/cartsStore";
 
 export default function Home() {
+  const allCarts = useCartStore((state) => state.allCarts);
+  const totalAmount = allCarts.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
+
   return (
     <main className="sm:grid grid-cols-12 mx-4 gap-4 sm:h-[calc(100vh-48px)]">
       {/* Products Div */}
@@ -32,18 +41,21 @@ export default function Home() {
           <SidebarModal
             buttonText={"+ New Customer"}
             modalTitle={"Add New Customer"}
+            position={"justify-end"}
+            footer={true}
           />
         </div>
         <div className="relative flex-auto h-[calc(100vh-260px)] overflow-y-auto">
-          <p className="text-blueGray-500 text-lg leading-relaxed">
-            I always felt like I could do anything. That’s the main thing people
-            are controlled by! Thoughts- their perception of themselves! They're
-            slowed down by their perception of themselves. If you're taught you.
-          </p>
+          <Cart />
         </div>
         <div className="flex flex-row items-center justify-between gap-3 h-10 bg-slate-600 rounded">
-          <p className="text-white font-semibold py-2 px-4">Total</p>
-          <p className="text-white font-semibold py-2 px-4">$218</p>
+          <p className="text-white  py-2 px-4">
+            <span className="font-semibold">Total</span>{" "}
+            <span className="text-xs">({allCarts.length} Products)</span>
+          </p>
+          <p className="text-white font-semibold py-2 px-4">
+            $ {totalAmount.toFixed(2)}
+          </p>
         </div>
         <div className="flex flex-row items-center justify-between gap-3 h-10">
           <button

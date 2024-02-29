@@ -1,8 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { Children, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 
-export default function SidebarModal({ buttonText, modalTitle }) {
+export default function SidebarModal({
+  buttonText,
+  modalTitle,
+  position,
+  children,
+  footer,
+}) {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
@@ -15,7 +21,9 @@ export default function SidebarModal({ buttonText, modalTitle }) {
       </button>
       {showModal ? (
         <>
-          <div className="flex justify-end overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+          <div
+            className={`flex ${position} overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none`}
+          >
             <div className="relative w-96">
               {/*content*/}
               <div className="border-0 shadow-lg relative flex flex-col w-full h-screen bg-white outline-none focus:outline-none">
@@ -29,35 +37,19 @@ export default function SidebarModal({ buttonText, modalTitle }) {
                 </div>
                 {/*body*/}
                 <div className="relative p-3 flex-auto overflow-y-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything. I
-                    always felt like I could do anything. That’s the main thing
-                    people are controlled by! Thoughts- their perception of
-                    themselves! They're slowed down by their perception of
-                    themselves. I always felt like I could do anything. That’s
-                    the main thing people are controlled by! Thoughts- their
-                    perception of themselves! They're slowed down by their
-                    perception of themselves. If you're taught you can’t do
-                    anything, you won’t do anything. I was taught I could do
-                    everything. I always felt like I could do anything. That’s
-                    the main thing people are controlled by! Thoughts- their
-                    perception of themselves! They're slowed down by their
-                    perception of themselves.
-                  </p>
+                  {children}
                 </div>
                 {/*footer*/}
-                <div className="flex items-center p-3 border-t border-solid border-blueGray-200">
-                  <button
-                    className="w-full uppercase bg-blue-500 border-blue-400 hover:bg-blue-600 text-white font-semibold py-2 px-4 border rounded shadow"
-                    type="button"
-                  >
-                    Register
-                  </button>
-                </div>
+                {footer && (
+                  <div className="flex items-center p-3 border-t border-solid border-blueGray-200">
+                    <button
+                      className="w-full uppercase bg-blue-500 border-blue-400 hover:bg-blue-600 text-white font-semibold py-2 px-4 border rounded shadow"
+                      type="button"
+                    >
+                      Register
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>

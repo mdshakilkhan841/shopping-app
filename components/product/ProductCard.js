@@ -3,13 +3,17 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
-import Link from "next/link";
 import ReactStars from "react-rating-stars-component";
 import ProductCardSkeleton from "../loader/ProductCardSkeleton";
+import useCartStore from "@/store/cartsStore";
+import useProductsStore from "@/store/productsStore";
 
 export default function ProductCard() {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { addToCart } = useCartStore();
+  const products = useProductsStore((state) => state.products);
+  const { setProducts } = useProductsStore();
 
   const getProduct = async () => {
     setLoading(true);
@@ -34,7 +38,7 @@ export default function ProductCard() {
       {products.map((item) => (
         <div key={item.id}>
           <div className="shadow-lg">
-            <Link href={`/products/${item.id}`}>
+            <div>
               <div className="block relative h-28 mt-3 overflow-hidden">
                 <Image
                   height={100}
@@ -52,7 +56,7 @@ export default function ProductCard() {
                   {item.title}
                 </h2>
               </div>
-            </Link>
+            </div>
             <div className="px-3 pb-3">
               <div className="flex items-center space-x-2">
                 {item.rating && item.rating.rate ? (
@@ -81,7 +85,7 @@ export default function ProductCard() {
                 <button
                   className="bg-blue-500 text-white active:bg-blue-600 font-bold text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                   type="button"
-                  onClick={() => handleAddCart(item)}
+                  onClick={() => addToCart(item)}
                 >
                   Add to Cart
                 </button>
