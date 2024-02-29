@@ -4,6 +4,7 @@ import { IoCloseSharp } from "react-icons/io5";
 
 export default function SidebarModal({
   buttonText,
+  buttonClass,
   modalTitle,
   position,
   children,
@@ -13,7 +14,7 @@ export default function SidebarModal({
   return (
     <>
       <button
-        className="bg-blue-500 border-blue-400 hover:bg-blue-600 text-white font-semibold py-2 px-4 border rounded shadow"
+        className={buttonClass}
         type="button"
         onClick={() => setShowModal(true)}
       >
@@ -28,7 +29,7 @@ export default function SidebarModal({
               {/*content*/}
               <div className="border-0 shadow-lg relative flex flex-col w-full h-screen bg-white outline-none focus:outline-none">
                 {/*header*/}
-                <div className="flex items-start justify-between p-3 border-b border-solid border-blueGray-200">
+                <div className="flex items-center align-middle justify-between px-3 h-12 border-b border-solid border-blueGray-200">
                   <h6 className="text-xl font-semibold">{modalTitle}</h6>
                   <IoCloseSharp
                     className="text-3xl cursor-pointer"
@@ -36,7 +37,7 @@ export default function SidebarModal({
                   />
                 </div>
                 {/*body*/}
-                <div className="relative p-3 flex-auto overflow-y-auto">
+                <div className="relative p-3 flex-auto overflow-y-auto bg-gray-200">
                   {children}
                 </div>
                 {/*footer*/}

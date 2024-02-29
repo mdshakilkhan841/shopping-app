@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { AiTwotoneDelete } from "react-icons/ai";
 import useCartStore from "@/store/cartsStore";
 
-const Cart = () => {
+const CartProducts = () => {
   const { increaseQuantity, decreaseQuantity, removeFromCart } = useCartStore();
   const allCarts = useCartStore((state) => state.allCarts);
   console.log("🚀 ~ Cart ~ allCarts:", allCarts);
@@ -58,4 +58,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartProducts;
